@@ -1,0 +1,34 @@
+src/*.exe
+src/bitriad
+src/bitriadd
+src/test_bitriad
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.bitriad
+
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+bitriad-qt
+Bitriad-Qt.app
+
+# Unit-tests
+Makefile.test
+bitriad-qt_test
+
+# Resources cpp
+qrc_*.cpp
+
+# Qt creator
+*.pro.user
+
+# Mac specific
+.DS_Store
+build
+
+!src/leveldb*/Makefile
