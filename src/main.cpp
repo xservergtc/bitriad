@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xf3e6958e5564f44246d944539911288ecab972a0907f5a0d382c210b5064ae91");
+uint256 hashGenesisBlock("0x0985245bf8182fc4bb31fad0c250d33aac3e93b2f7531a3461237b988aba75c7");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Bitriad: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1088,6 +1088,10 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 0.0001 * COIN;
+    if(nHeight == 2)
+    {
+        nSubsidy = 10000000 * COIN;
+    }
 
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 840000); // Bitriad: 840k blocks in ~4 years
@@ -2746,7 +2750,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc2;
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xd2;
-        hashGenesisBlock = uint256("0x0d233ebcb61a5f57bc29c3b0f33bc8b15b4f21eba250eca6244ea3113144b072");
+        hashGenesisBlock = uint256("0xa5ea87c1a035843352b7e6dac379b756b422c4556d41678597dae0262c830623");
     }
 
     //
@@ -2791,14 +2795,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1560659867;
+        block.nTime    = 1562883654;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2087166728;
+        block.nNonce   = 2088058424;
 
         if (fTestNet)
         {
-            block.nTime    = 1560659841;
-            block.nNonce   = 389818699;
+            block.nTime    = 1562883613;
+            block.nNonce   = 391155795;
         }
 
 if (false && block.GetHash() != hashGenesisBlock)
