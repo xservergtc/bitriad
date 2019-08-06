@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x0985245bf8182fc4bb31fad0c250d33aac3e93b2f7531a3461237b988aba75c7");
+uint256 hashGenesisBlock("0xdb7f7e22d32b00f580354e9c6254617561eca543581f3f1462c862a0e7ab3a37");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Bitriad: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1091,10 +1091,12 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     if(nHeight == 2)
     {
         nSubsidy = 10000000 * COIN;
+    }else if(nHeight % 6732 == 6628){
+	nSubsidy = 3 * COIN;
     }
 
-    // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Bitriad: 840k blocks in ~4 years
+    // Subsidy is cut in half every 8400000 blocks, which will occur approximately every 40 years
+    nSubsidy >>= (nHeight / 8400000); // Bitriad: 840m blocks in ~40 years
 
     return nSubsidy + nFees;
 }
@@ -2750,7 +2752,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc2;
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xd2;
-        hashGenesisBlock = uint256("0xa5ea87c1a035843352b7e6dac379b756b422c4556d41678597dae0262c830623");
+        hashGenesisBlock = uint256("0x8ba5edbd24a629c3eecad79981e2a56bc1f126a8afb6ad792178068c5f9bb73f");
     }
 
     //
@@ -2795,14 +2797,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1562883654;
+        block.nTime    = 1565074761;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2088058424;
+        block.nNonce   = 2088599974;
 
         if (fTestNet)
         {
-            block.nTime    = 1562883613;
-            block.nNonce   = 391155795;
+            block.nTime    = 1565074743;
+            block.nNonce   = 392987853;
         }
 
 if (false && block.GetHash() != hashGenesisBlock)
@@ -2847,6 +2849,8 @@ if (false && block.GetHash() != hashGenesisBlock)
             printf("block.nNonce = %u \n", block.nNonce);
             printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
         }
+
+
 
         //// debug print
         uint256 hash = block.GetHash();
