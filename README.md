@@ -1,25 +1,26 @@
 Bitriad integration/staging tree
 ================================
 
-http://www.bitriad.org
+https://www.bitriad.com
 
 Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Bitriad Developers
+Copyright (c) 2011-2014 Litecoin Developers
+Copyright (c) 2019 Bitriad Developers
 
 What is Bitriad?
 ----------------
 
 Bitriad is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
  - 2.5 minute block targets
- - subsidy halves in 840k blocks (~4 years)
+ - subsidy halves in 420k blocks (~2 years)
  - ~21 million total coins
 
 The rest is the same as Bitcoin.
- - 0.000001 coins per block
+ - 12.5 coins per block
  - 2016 blocks to retarget difficulty
 
 For more information, as well as an immediately useable, binary version of
-the Bitriad client sofware, see http://www.bitriad.org.
+the Bitriad client sofware, see https://www.bitriad.com
 
 License
 -------
