@@ -5,9 +5,9 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.8.7.5
-!define COMPANY "Bitriad project"
-!define URL http://www.bitriad.org/
+!define VERSION 1.2.4.4
+!define COMPANY "Bitriad Core"
+!define URL http://www.bitriad.com/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/bitcoin.ico"
